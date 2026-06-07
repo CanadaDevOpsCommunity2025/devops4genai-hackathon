@@ -1,10 +1,94 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, ArrowRight, Code2, Users, Trophy, Rocket, Sparkles, Zap, Bot, Eye, Activity, Clock, Award } from "lucide-react";
+import { Calendar, MapPin, ArrowRight, Code2, Users, Trophy, Rocket, Sparkles, Zap, Bot, Eye, Activity, Clock, Award, Camera } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import headshotGarima from "@/assets/headshots/Garima_bajpai.png";
+import headshotJohn from "@/assets/headshots/John_Willis_Image20260606195016.png";
+
+const galleryImages = Object.values(
+  import.meta.glob("@/assets/gallery/*.jpg", { eager: true, import: "default" })
+) as string[];
 
 const HACK_URL = "https://www.eventbrite.com/e/devops-for-genai-hackathon-ottawa-2026-tickets-1984872192158";
 
 const VENUE = "Invest Ottawa, 7 Bayview Rd, Ottawa, ON";
 const EVENT_DATE = "August 21–22, 2026";
+
+const GalleryCarousel = () => {
+  const [current, setCurrent] = useState(0);
+  const total = galleryImages.length;
+  const visibleCount = 3;
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  const getIndex = (offset: number) => (current + offset) % total;
+
+  return (
+    <section id="gallery" className="py-24 md:py-32 bg-gradient-surface">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mb-16">
+          <span className="font-mono text-xs uppercase tracking-widest text-accent">06 / Gallery</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4">Moments from past events.</h2>
+          <p className="text-lg text-muted-foreground mt-4">A look back at the energy, collaboration, and community spirit from our previous gatherings.</p>
+        </div>
+
+        <div className="relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 overflow-hidden">
+            {Array.from({ length: visibleCount }).map((_, offset) => (
+              <div
+                key={getIndex(offset)}
+                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border group"
+              >
+                <img
+                  src={galleryImages[getIndex(offset)]}
+                  alt={`Community event photo ${getIndex(offset) + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center gap-6 mt-8">
+            <button
+              onClick={prev}
+              className="w-12 h-12 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
+              aria-label="Previous photos"
+            >
+              <ArrowRight className="w-5 h-5 rotate-180" />
+            </button>
+
+            <div className="flex gap-2">
+              {galleryImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    i === current ? "bg-accent w-6" : "bg-border hover:bg-muted-foreground"
+                  }`}
+                  aria-label={`Go to photo ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={next}
+              className="w-12 h-12 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
+              aria-label="Next photos"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
   return (
@@ -21,6 +105,8 @@ const Index = () => {
             <a href="#challenge" className="hover:text-foreground transition-smooth">Challenge</a>
             <a href="#timeline" className="hover:text-foreground transition-smooth">Timeline</a>
             <a href="#prizes" className="hover:text-foreground transition-smooth">Prizes</a>
+            <a href="#founders" className="hover:text-foreground transition-smooth">Founders</a>
+            <a href="#gallery" className="hover:text-foreground transition-smooth">Gallery</a>
             <a href="#faq" className="hover:text-foreground transition-smooth">FAQ</a>
           </div>
           <Button asChild size="sm" className="bg-gradient-primary hover:opacity-90 border-0">
@@ -210,11 +296,12 @@ const Index = () => {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold mb-8 text-accent">Day 1 — Thursday</h3>
+            <h3 className="text-2xl font-bold mb-8 text-accent">Day 1 — Friday, August 21</h3>
             {[
-              { time: "17:30", title: "Hackathon Kickoff", desc: "Teams form, challenge revealed, builds begin." },
-              { time: "18:00", title: "Hacking Begins", desc: "Start building. Mentors available for guidance." },
-              { time: "20:00", title: "Teams Depart", desc: "Continue working remotely or take a break. Your call." },
+              { time: "16:00", title: "Kickoff", desc: "Welcome and opening remarks." },
+              { time: "16:15", title: "Keynote", desc: "Setting the stage for the weekend ahead." },
+              { time: "17:00", title: "Community Connect & Refreshments", desc: "Networking, conversations, and light refreshments." },
+              { time: "17:30", title: "Hackathon Starts", desc: "Teams form, problems drop, builds begin. Teams can leave to work on the solution." },
             ].map((item, i) => (
               <div key={i} className="flex gap-6 md:gap-10 group">
                 <div className="flex flex-col items-center">
@@ -231,12 +318,16 @@ const Index = () => {
               </div>
             ))}
 
-            <h3 className="text-2xl font-bold mb-8 mt-12 text-accent">Day 2 — Friday</h3>
+            <h3 className="text-2xl font-bold mb-8 mt-12 text-accent">Day 2 — Saturday, August 22</h3>
             {[
-              { time: "09:00", title: "Teams Return", desc: "Final stretch. Polish your demo and prepare your pitch." },
-              { time: "15:00", title: "Code Freeze", desc: "Stop coding. Finalize your submission." },
-              { time: "16:00", title: "Demo & Presentations", desc: "Each team presents their solution to judges (5 min each)." },
-              { time: "17:30", title: "Judging & Awards", desc: "Winners announced. Prizes awarded. Celebration." },
+              { time: "09:00", title: "Registration & Coffee", desc: "Check in, grab swag, meet fellow builders." },
+              { time: "09:30", title: "Keynote", desc: "Inspiration and insights to kick off day two." },
+              { time: "10:00", title: "Technical Talks — Cloud & DevOps", desc: "Deep dives from practitioners shipping in production." },
+              { time: "12:00", title: "Lunch & Networking", desc: "Conversations that turn into collaborations." },
+              { time: "16:00", title: "Hackathon Demos", desc: "Teams present their solutions to the judges." },
+              { time: "17:00", title: "Hackathon Ends", desc: "Final submissions and wrap-up." },
+              { time: "17:30", title: "Award Ceremony", desc: "Winning teams take the stage." },
+              { time: "18:00", title: "Closing Remarks", desc: "Thank you and see you next year!" },
             ].map((item, i) => (
               <div key={i} className="flex gap-6 md:gap-10 group">
                 <div className="flex flex-col items-center">
@@ -310,6 +401,41 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* FOUNDERS */}
+      <section id="founders" className="py-24 md:py-32 bg-gradient-surface">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-16">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">07 / Founders</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4">The minds behind the movement.</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { name: "Garima Bajpai", role: "Co-Founder", tag: "DevOps Executive of the Year", desc: "Senior Leader recognized at DevOps Dozen Awards. AWS User Group Ottawa lead. Author on Technology Leadership. Bridges DevOps and emerging AI communities.", linkedin: "https://www.linkedin.com/in/garimabajpai", aws: true, photo: headshotGarima },
+              { name: "John Willis", role: "Co-Founder", tag: "DevOps Handbook Co-Author", desc: "Pioneer of the DevOps movement. Co-authored The DevOps Handbook & Beyond The Phoenix Project. Exploring synergy between GenAI and Deming's principles.", linkedin: "https://www.linkedin.com/in/intheclouds", aws: false, photo: headshotJohn },
+            ].map(({ name, role, tag, desc, linkedin, aws, photo }) => (
+              <a key={name} href={linkedin} target="_blank" rel="noopener noreferrer" className="group relative flex items-center gap-5 p-6 rounded-2xl bg-gradient-card border border-accent/30 hover:shadow-glow transition-smooth">
+                {aws && (
+                  <span className="absolute top-3 right-3 px-1.5 py-0.5 rounded bg-[#FF9900]/20 border border-[#FF9900]/40 text-[#FF9900] font-mono text-[8px] font-bold">AWS</span>
+                )}
+                <div className={`w-20 h-20 rounded-full border-2 overflow-hidden shrink-0 transition-smooth ${aws ? "border-[#FF9900]/40 group-hover:border-[#FF9900]" : "border-accent/40 group-hover:border-accent"}`}>
+                  <img src={photo} alt={name} className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold group-hover:text-accent transition-smooth">{name}</h4>
+                  <p className="text-muted-foreground text-sm">{role}</p>
+                  <p className="text-muted-foreground/70 text-xs mt-1 leading-relaxed">{desc}</p>
+                  <span className="inline-block mt-2 px-2 py-0.5 rounded-full bg-accent/10 border border-accent/30 text-accent font-mono text-[10px]">{tag}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <GalleryCarousel />
 
       {/* FINAL CTA */}
       <section className="py-24 md:py-32 relative overflow-hidden">
