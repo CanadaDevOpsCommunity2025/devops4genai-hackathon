@@ -3,6 +3,18 @@ import { Calendar, MapPin, ArrowRight, Code2, Users, Trophy, Rocket, Sparkles, Z
 import { useState, useEffect, useCallback } from "react";
 import headshotGarima from "@/assets/headshots/Garima_bajpai.png";
 import headshotJohn from "@/assets/headshots/John_Willis_Image20260606195016.png";
+import awsLogo from "@/assets/aws-logo.svg";
+import logoCrowdbyte from "@/assets/logos/logo new_version1.0_logo-main - white.png";
+import logoAlgonquin from "@/assets/logos/Algonquin_logo_AC_WORDMARK_1C_GRN.png";
+import logoWct from "@/assets/logos/wct-logo_dark.png";
+import logoInvest from "@/assets/logos/io-logo-svg.svg";
+import logoPackt from "@/assets/logos/packt-Dz-8EKdV.svg";
+import logoLiatrio from "@/assets/logos/liatrio-logo-dark.svg";
+import logoTEK from "@/assets/logos/teksystems-logo.svg";
+import logoKodeKloud from "@/assets/logos/Kode_cloud_Screenshot 2026-06-06 220755.png";
+import logoOreilly from "@/assets/logos/Oriely_download.png";
+import logoNewFound from "@/assets/logos/NewFound_soultions_Screenshot 2026-06-11 000345.png";
+import logoOpaque from "@/assets/logos/Opaque_Screenshot 2026-06-11 000302.png";
 
 const galleryImages = Object.values(
   import.meta.glob("@/assets/gallery/*.jpg", { eager: true, import: "default" })
@@ -106,6 +118,7 @@ const Index = () => {
             <a href="#timeline" className="hover:text-foreground transition-smooth">Timeline</a>
             <a href="#prizes" className="hover:text-foreground transition-smooth">Prizes</a>
             <a href="#founders" className="hover:text-foreground transition-smooth">Founders</a>
+            <a href="#sponsors" className="hover:text-foreground transition-smooth">Sponsors</a>
             <a href="#gallery" className="hover:text-foreground transition-smooth">Gallery</a>
             <a href="#faq" className="hover:text-foreground transition-smooth">FAQ</a>
           </div>
@@ -430,6 +443,97 @@ const Index = () => {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SPONSORS */}
+      <section id="sponsors" className="py-24 md:py-32 bg-gradient-surface">
+        <div className="container mx-auto px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">06 / Sponsors</span>
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">Our sponsors & partners.</h2>
+            </div>
+
+            {/* Title Sponsor */}
+            <div className="mb-10">
+                <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Title Sponsor</p>
+                <div className="flex justify-center">
+                  <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" className="p-6 hover:opacity-80 transition-smooth">
+                    <img src={awsLogo} alt="AWS" className="h-12 invert brightness-0 invert" />
+                  </a>
+                </div>
+            </div>
+
+            {/* Organizing Partners */}
+            <div className="mb-10">
+                <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Organizing Partners</p>
+                <div className="flex flex-wrap justify-center gap-8 items-center">
+                  <a href="https://www.meetup.com/aws-ottawa/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <span className="font-bold text-sm">AWS User Group Ottawa</span>
+                  </a>
+                  <a href="https://crowdbytesolutions.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoCrowdbyte} alt="Crowdbyte Solutions" className="h-14 object-contain" />
+                  </a>
+                </div>
+            </div>
+
+            {/* Community Partners */}
+            <div className="mb-10">
+                <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Community Partners</p>
+                <div className="flex flex-wrap justify-center gap-8 items-center">
+                  <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoAlgonquin} alt="Algonquin College" className="h-16 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+                  </a>
+                  <a href="https://www.wct-fct.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoWct} alt="WCT" className="h-9 object-contain invert" />
+                  </a>
+                  <a href="https://www.investottawa.ca" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoInvest} alt="Invest Ottawa" className="h-9 object-contain invert" />
+                  </a>
+                  <a href="https://www.packtpub.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoPackt} alt="Packt" className="h-9 object-contain invert" />
+                  </a>
+                </div>
+            </div>
+
+            {/* Previous Sponsors */}
+            <div className="mb-16">
+              <h3 className="text-center text-lg font-bold mb-6">Previous Sponsors</h3>
+              <div className="flex flex-wrap justify-center items-center gap-8">
+                <a href="https://www.liatrio.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoLiatrio} alt="Liatrio" className="h-8 object-contain invert" />
+                </a>
+                <a href="https://www.teksystems.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoTEK} alt="TEKsystems" className="h-8 object-contain invert" />
+                </a>
+                <a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={awsLogo} alt="AWS" className="h-6 invert brightness-0 invert" />
+                </a>
+                <a href="https://kodekloud.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoKodeKloud} alt="KodeKloud" className="h-8 object-contain" />
+                </a>
+                <a href="https://www.oreilly.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoOreilly} alt="O'Reilly" className="h-8 object-contain invert" />
+                </a>
+                <a href="https://www.packtpub.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoPackt} alt="Packt" className="h-7 object-contain invert" />
+                </a>
+                <a href="https://crowdbytesolutions.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoCrowdbyte} alt="Crowdbyte Solutions" className="h-10 object-contain" />
+                </a>
+                <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoAlgonquin} alt="Algonquin College" className="h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+                </a>
+                <a href="https://newfoundrecruiting.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoNewFound} alt="NewFound Recruiting" className="h-8 object-contain" />
+                </a>
+                <a href="https://opaque.co" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
+                  <img src={logoOpaque} alt="Opaque" className="h-8 object-contain invert" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
