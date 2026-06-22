@@ -15,6 +15,8 @@ import logoKodeKloud from "@/assets/logos/Kode_cloud_Screenshot 2026-06-06 22075
 import logoOreilly from "@/assets/logos/Oriely_download.png";
 import logoNewFound from "@/assets/logos/NewFound_soultions_Screenshot 2026-06-11 000345.png";
 import logoOpaque from "@/assets/logos/Opaque_Screenshot 2026-06-11 000302.png";
+import logoTech2Step from "@/assets/logos/T2S logo variation_1 color P2.png";
+import logoCycode from "@/assets/logos/Cycode_Logo.jpg";
 
 const galleryImages = Object.values(
   import.meta.glob("@/assets/gallery/*.jpg", { eager: true, import: "default" })
@@ -466,6 +468,16 @@ const Index = () => {
                 </div>
             </div>
 
+            {/* Silver Partner */}
+            <div className="mb-10">
+                <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Silver Partner</p>
+                <div className="flex justify-center">
+                  <a href="https://cycode.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoCycode} alt="Cycode" className="h-10 object-contain" />
+                  </a>
+                </div>
+            </div>
+
             {/* Organizing Partners */}
             <div className="mb-10">
                 <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Organizing Partners</p>
@@ -484,7 +496,7 @@ const Index = () => {
                 <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Community Partners</p>
                 <div className="flex flex-wrap justify-center gap-8 items-center">
                   <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
-                    <img src={logoAlgonquin} alt="Algonquin College" className="h-16 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+                    <img src={logoAlgonquin} alt="Algonquin College" className="h-16 object-contain brightness-[3]" />
                   </a>
                   <a href="https://www.wct-fct.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
                     <img src={logoWct} alt="WCT" className="h-9 object-contain invert" />
@@ -494,6 +506,9 @@ const Index = () => {
                   </a>
                   <a href="https://www.packtpub.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
                     <img src={logoPackt} alt="Packt" className="h-9 object-contain invert" />
+                  </a>
+                  <a href="https://tech2step.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoTech2Step} alt="Tech 2 Step" className="h-12 object-contain" />
                   </a>
                 </div>
             </div>
@@ -524,7 +539,7 @@ const Index = () => {
                   <img src={logoCrowdbyte} alt="Crowdbyte Solutions" className="h-10 object-contain" />
                 </a>
                 <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
-                  <img src={logoAlgonquin} alt="Algonquin College" className="h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
+                  <img src={logoAlgonquin} alt="Algonquin College" className="h-12 object-contain brightness-[3]" />
                 </a>
                 <a href="https://newfoundrecruiting.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-smooth">
                   <img src={logoNewFound} alt="NewFound Recruiting" className="h-8 object-contain" />
