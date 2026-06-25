@@ -507,8 +507,8 @@ const Index = () => {
                   <a href="https://www.packtpub.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
                     <img src={logoPackt} alt="Packt" className="h-9 object-contain invert" />
                   </a>
-                  <a href="https://tech2step.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
-                    <img src={logoTech2Step} alt="Tech 2 Step" className="h-12 object-contain" />
+                  <a href="https://ca.linkedin.com/company/tech2step" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
+                    <img src={logoTech2Step} alt="Tech 2 Step" className="h-16 object-contain" />
                   </a>
                 </div>
             </div>
