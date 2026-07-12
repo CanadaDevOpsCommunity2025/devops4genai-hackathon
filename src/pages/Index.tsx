@@ -119,6 +119,7 @@ const Index = () => {
             <a href="#challenge" className="hover:text-foreground transition-smooth">Challenge</a>
             <a href="#timeline" className="hover:text-foreground transition-smooth">Timeline</a>
             <a href="#prizes" className="hover:text-foreground transition-smooth">Prizes</a>
+            <a href="#masterclass" className="hover:text-accent transition-smooth text-accent/80 font-medium">Masterclass</a>
             <a href="#founders" className="hover:text-foreground transition-smooth">Founders</a>
             <a href="#sponsors" className="hover:text-foreground transition-smooth">Sponsors</a>
             <a href="#gallery" className="hover:text-foreground transition-smooth">Gallery</a>
@@ -171,6 +172,13 @@ const Index = () => {
                   </a>
                 </Button>
 
+              </div>
+              <div className="flex flex-wrap gap-4 mt-4">
+                <Button asChild size="lg" className="text-base h-14 px-8 bg-accent/10 backdrop-blur-sm border border-accent/40 hover:bg-accent/20 hover:border-accent/70 hover:shadow-[0_0_25px_rgba(146,119,255,0.25)] transition-all duration-300">
+                  <a href="https://www.eventbrite.com/e/masterclass-devops-ai-and-agents-with-john-willis-tickets-1993440231394" target="_blank" rel="noopener noreferrer">
+                    <Sparkles className="mr-2 w-5 h-5 text-accent" /> Masterclass - DevOps, AI, and Agents with John Willis <ArrowRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
               </div>
             </div>
 
@@ -413,6 +421,49 @@ const Index = () => {
                 <p className="text-muted-foreground leading-relaxed">{a}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MASTERCLASS */}
+      <section id="masterclass" className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-primary/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
+        <div className="container mx-auto px-6 relative">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur-sm mb-6">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span className="font-mono text-xs uppercase tracking-widest text-accent">Exclusive · Limited Seats</span>
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold">Masterclass</h2>
+              <p className="text-lg text-muted-foreground mt-4">DevOps, AI & Agents with John Willis</p>
+            </div>
+
+            <div className="p-8 md:p-12 rounded-3xl border border-accent/40 bg-background/50 backdrop-blur-sm shadow-[0_0_60px_rgba(146,119,255,0.1)]">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="shrink-0">
+                  <div className="w-32 h-32 rounded-2xl border-2 border-accent/50 overflow-hidden shadow-[0_0_30px_rgba(146,119,255,0.2)]">
+                    <img src={headshotJohn} alt="John Willis" className="w-full h-full object-cover object-top" />
+                  </div>
+                  <p className="text-center font-bold text-sm mt-3">John Willis</p>
+                  <p className="text-center text-muted-foreground text-[10px]">Co-Author, The DevOps Handbook</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    An exclusive deep-dive masterclass by John Willis — co-author of The DevOps Handbook and pioneer of the DevOps movement. Explore the synergy between Generative AI, Agentic workflows, and Deming's principles of transformation.
+                  </p>
+                  <p className="text-sm text-muted-foreground/70 mb-6">
+                    ⚠️ This is a separate ticket — not included with the AWS Community Day or Hackathon registration.
+                  </p>
+                  <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 border-0 h-14 px-8 shadow-glow animate-pulse-glow">
+                    <a href="https://www.eventbrite.com/e/masterclass-devops-ai-and-agents-with-john-willis-tickets-1993440231394" target="_blank" rel="noopener noreferrer">
+                      Get Masterclass Ticket <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
