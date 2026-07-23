@@ -3,6 +3,10 @@ import { Calendar, MapPin, ArrowRight, Code2, Users, Trophy, Rocket, Sparkles, Z
 import { useState, useEffect, useCallback } from "react";
 import headshotGarima from "@/assets/headshots/Garima_bajpai.png";
 import headshotJohn from "@/assets/headshots/John_Willis_Image20260606195016.png";
+import headshotManas from "@/assets/headshots/MyPhoto - Manas Kumar Mondal.jpg";
+import headshotAlexander from "@/assets/headshots/IMG_4822 - Alexander Rey.jpeg";
+import headshotManoj from "@/assets/headshots/Manoj_selvakumar1593311470260.jpeg";
+import headshotDaniel from "@/assets/headshots/Summit - Daniel Clement.jpg";
 import awsLogo from "@/assets/aws-logo.svg";
 import logoCrowdbyte from "@/assets/logos/logo new_version1.0_logo-main - white.png";
 import logoAlgonquin from "@/assets/logos/Algonquin_logo_AC_WORDMARK_1C_GRN.png";
@@ -17,6 +21,8 @@ import logoNewFound from "@/assets/logos/NewFound_soultions_Screenshot 2026-06-1
 import logoOpaque from "@/assets/logos/Opaque_Screenshot 2026-06-11 000302.png";
 import logoTech2Step from "@/assets/logos/T2S logo variation_1 color P2.png";
 import logoCycode from "@/assets/logos/Cycode_Logo.jpg";
+import logoCapgemini from "@/assets/logos/new_capgemini-images.jpeg";
+import logoGovernmentCanada from "@/assets/logos/Government-of-Canada-logo-1536x864.png";
 
 const galleryImages = Object.values(
   import.meta.glob("@/assets/gallery/*.jpg", { eager: true, import: "default" })
@@ -26,6 +32,70 @@ const HACK_URL = "https://www.eventbrite.com/e/devops-for-genai-hackathon-ottawa
 
 const VENUE = "Invest Ottawa, 7 Bayview Rd, Ottawa, ON";
 const EVENT_DATE = "August 21–22, 2026";
+
+const HACKATHON_DAY_ONE = [
+  { time: "4:00–4:10 PM", title: "Opening Talk", desc: "Welcome to AWS Community Day and the DevOps for GenAI Hackathon." },
+  { time: "4:10–4:30 PM", title: "Community Day Keynote", desc: "Leading in the Age of AI with Dr. Mary Gunaratnam." },
+  { time: "4:30–5:00 PM", title: "Community Day Talk", desc: "Building an AI-forward Enterprise Platform Engineering Organization with Gautham Pallapa." },
+  { time: "5:00–5:50 PM", title: "Hackathon Team Formation & Kickoff", desc: "Coffee, networking, team formation, challenge orientation, and the start of the build." },
+  { time: "5:50–6:00 PM", title: "Day 1 Closing", desc: "Closing remarks and Tech2Step walkthrough with Garima Bajpai." },
+];
+
+const HACKATHON_DAY_TWO = [
+  { time: "10:00–10:30 AM", title: "Introduction to the Judges", desc: "Meet the hackathon judges in L203 with Garima Bajpai." },
+  { time: "10:00–11:30 AM", title: "Parallel Workshops", desc: "AWS Transform with Manas Mondal in L203 and Strands Agents with Manoj Selvakumar in the Rogers Room." },
+  { time: "10:30–11:30 AM", title: "Judge & Mentor Space", desc: "Meet and mingle with judges and mentors in L203." },
+  { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Daniel Clement presents online in L203 while Alexander Rey presents in the Rogers Room." },
+  { time: "12:00–1:00 PM", title: "Lunch", desc: "Lunch and networking across the event." },
+  { time: "1:00–2:00 PM", title: "Masterclass: Agents, AI and Age", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
+  { time: "4:00–5:00 PM", title: "Hackathon Presentations", desc: "Teams present their solutions in the Foundry." },
+  { time: "5:00–5:30 PM", title: "Closed-door Judging", desc: "Judges deliberate in L203." },
+  { time: "5:30–6:00 PM", title: "Closing Remarks & Awards", desc: "Awards and closing remarks with Garima Bajpai and Aliza Newman." },
+];
+
+const FEATURED_SESSIONS = [
+  {
+    name: "Manas Mondal",
+    role: "Managing Principal Enterprise Architect, Capgemini",
+    title: "Simplifying Cloud Migration: AWS Transform Enables Seamless VMware Exit",
+    linkedin: "https://www.linkedin.com/in/manas-mondal-b2b9094",
+    photo: headshotManas,
+    logo: logoCapgemini,
+    logoClass: "",
+    aws: true,
+  },
+  {
+    name: "Manoj Selvakumar",
+    role: "GenAI Specialist Solutions Architect, Amazon Web Services",
+    title: "Developer-led Workshop: Strands Agents",
+    linkedin: "https://www.linkedin.com/in/manoj-selvakumar/",
+    photo: headshotManoj,
+    logo: awsLogo,
+    logoClass: "brightness-0 invert",
+    aws: true,
+  },
+  {
+    name: "Alexander Rey",
+    role: "Research Council Officer, National Research Council Canada · Creator, Pirate Weather",
+    title: "Compute for the Rest of Us: Leveraging AWS as a Civil Engineer",
+    linkedin: "https://ca.linkedin.com/in/alexander-rey",
+    photo: headshotAlexander,
+    logo: logoGovernmentCanada,
+    logoClass: "w-full object-cover",
+    logoContainerClass: "rounded-sm bg-white px-2",
+    aws: true,
+  },
+  {
+    name: "Daniel Clement",
+    role: "AWS Community Builder",
+    title: "From Threat to Guardian: Building Agentic AI on AWS to Combat Online Exploitation",
+    linkedin: "https://www.linkedin.com/in/danielclement1/",
+    photo: headshotDaniel,
+    logo: awsLogo,
+    logoClass: "brightness-0 invert",
+    aws: true,
+  },
+];
 
 const GalleryCarousel = () => {
   const [current, setCurrent] = useState(0);
@@ -117,7 +187,7 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-smooth">About</a>
             <a href="#challenge" className="hover:text-foreground transition-smooth">Challenge</a>
-            <a href="#timeline" className="hover:text-foreground transition-smooth">Timeline</a>
+            <a href="#timeline" className="hover:text-foreground transition-smooth">Program</a>
             <a href="#prizes" className="hover:text-foreground transition-smooth">Prizes</a>
             <a href="#masterclass" className="hover:text-accent transition-smooth text-accent/80 font-medium">Masterclass</a>
             <a href="#founders" className="hover:text-foreground transition-smooth">Founders</a>
@@ -314,18 +384,14 @@ const Index = () => {
       <section id="timeline" className="py-24 md:py-32 bg-gradient-surface">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-accent">03 / Timeline</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4">24 hours to build.</h2>
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">03 / Program</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4">Build, learn, present.</h2>
+            <p className="text-lg text-muted-foreground mt-4">The hackathon program, reconciled with the AWS Community Day multi-room agenda.</p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-8 text-accent">Day 1 — Friday, August 21</h3>
-            {[
-              { time: "16:00", title: "Kickoff", desc: "Welcome and opening remarks." },
-              { time: "16:15", title: "Keynote", desc: "Setting the stage for the weekend ahead." },
-              { time: "17:00", title: "Community Connect & Refreshments", desc: "Networking, conversations, and light refreshments." },
-              { time: "17:30", title: "Hackathon Starts", desc: "Teams form, problems drop, builds begin. Teams can leave to work on the solution." },
-            ].map((item, i) => (
+            {HACKATHON_DAY_ONE.map((item, i) => (
               <div key={i} className="flex gap-6 md:gap-10 group">
                 <div className="flex flex-col items-center">
                   <div className="font-mono text-sm text-accent pt-1">{item.time}</div>
@@ -342,16 +408,7 @@ const Index = () => {
             ))}
 
             <h3 className="text-2xl font-bold mb-8 mt-12 text-accent">Day 2 — Saturday, August 22</h3>
-            {[
-              { time: "09:00", title: "Registration & Coffee", desc: "Check in, grab swag, meet fellow builders." },
-              { time: "09:30", title: "Keynote", desc: "Inspiration and insights to kick off day two." },
-              { time: "10:00", title: "Technical Talks — Cloud & DevOps", desc: "Deep dives from practitioners shipping in production." },
-              { time: "12:00", title: "Lunch & Networking", desc: "Conversations that turn into collaborations." },
-              { time: "16:00", title: "Hackathon Demos", desc: "Teams present their solutions to the judges." },
-              { time: "17:00", title: "Hackathon Ends", desc: "Final submissions and wrap-up." },
-              { time: "17:30", title: "Award Ceremony", desc: "Winning teams take the stage." },
-              { time: "18:00", title: "Closing Remarks", desc: "Thank you and see you next year!" },
-            ].map((item, i) => (
+            {HACKATHON_DAY_TWO.map((item, i) => (
               <div key={i} className="flex gap-6 md:gap-10 group">
                 <div className="flex flex-col items-center">
                   <div className="font-mono text-sm text-accent pt-1">{item.time}</div>
@@ -366,6 +423,39 @@ const Index = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div id="sessions" className="mt-20">
+            <div className="mb-8">
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">Featured workshops & talks</span>
+              <h3 className="text-3xl font-bold mt-3">Learn while you build.</h3>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {FEATURED_SESSIONS.map((session) => (
+                <a
+                  key={session.name}
+                  href={session.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex min-w-0 flex-col rounded-lg border border-border bg-gradient-card p-5 transition-smooth hover:border-accent/40 hover:shadow-elevated"
+                >
+                  {session.aws && (
+                    <span className="absolute right-3 top-3 rounded border border-[#FF9900]/40 bg-[#FF9900]/20 px-1.5 py-0.5 font-mono text-[8px] font-bold text-[#FF9900]">
+                      AWS
+                    </span>
+                  )}
+                  <div className="mb-4 h-20 w-20 overflow-hidden rounded-full border-2 border-[#FF9900]/30">
+                    <img src={session.photo} alt={session.name} className="h-full w-full object-cover object-top" />
+                  </div>
+                  <h4 className="text-base font-bold group-hover:text-accent transition-smooth">{session.name}</h4>
+                  <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground">{session.role}</p>
+                  <p className="mt-3 flex-1 text-xs font-medium leading-relaxed">{session.title}</p>
+                  <div className={`mt-4 h-6 max-w-[12rem] overflow-hidden ${session.logoContainerClass || ""}`}>
+                    <img src={session.logo} alt="" className={`h-full max-w-full object-contain object-left ${session.logoClass}`} />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
