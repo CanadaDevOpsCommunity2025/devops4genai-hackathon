@@ -3,7 +3,6 @@ import { Calendar, MapPin, ArrowRight, Code2, Users, Trophy, Rocket, Sparkles, Z
 import { useState, useEffect, useCallback } from "react";
 import headshotGarima from "@/assets/headshots/Garima_bajpai.png";
 import headshotJohn from "@/assets/headshots/John_Willis_Image20260606195016.png";
-import headshotManas from "@/assets/headshots/MyPhoto - Manas Kumar Mondal.jpg";
 import headshotAlexander from "@/assets/headshots/IMG_4822 - Alexander Rey.jpeg";
 import headshotManoj from "@/assets/headshots/Manoj_selvakumar1593311470260.jpeg";
 import headshotDaniel from "@/assets/headshots/Summit - Daniel Clement.jpg";
@@ -21,7 +20,6 @@ import logoNewFound from "@/assets/logos/NewFound_soultions_Screenshot 2026-06-1
 import logoOpaque from "@/assets/logos/Opaque_Screenshot 2026-06-11 000302.png";
 import logoTech2Step from "@/assets/logos/T2S logo variation_1 color P2.png";
 import logoCycode from "@/assets/logos/Cycode_Logo.jpg";
-import logoCapgemini from "@/assets/logos/new_capgemini-images.jpeg";
 import logoGovernmentCanada from "@/assets/logos/Government-of-Canada-logo-1536x864.png";
 
 const galleryImages = Object.values(
@@ -32,6 +30,7 @@ const HACK_URL = "https://www.eventbrite.com/e/devops-for-genai-hackathon-ottawa
 
 const VENUE = "Invest Ottawa, 7 Bayview Rd, Ottawa, ON";
 const EVENT_DATE = "August 21–22, 2026";
+const FULL_STACK_URL = "https://www.youtube.com/watch_videos?video_ids=8aHXhAlylQc&type=0&title=The+Full+Stack+%E2%80%94%C2%A0it%27s+about+more+than+frontend+%26+backend+%E2%80%A2+Season+1";
 
 const HACKATHON_DAY_ONE = [
   { time: "4:00–4:10 PM", title: "Opening Talk", desc: "Welcome to AWS Community Day and the DevOps for GenAI Hackathon." },
@@ -43,27 +42,18 @@ const HACKATHON_DAY_ONE = [
 
 const HACKATHON_DAY_TWO = [
   { time: "10:00–10:30 AM", title: "Introduction to the Judges", desc: "Meet the hackathon judges in L203 with Garima Bajpai." },
-  { time: "10:00–11:30 AM", title: "Parallel Workshops", desc: "AWS Transform with Manas Mondal in L203 and Strands Agents with Manoj Selvakumar in the Rogers Room." },
+  { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Manoj Selvakumar leads the Strands Agents workshop in the Rogers Room." },
+  { time: "10:30–11:30 AM", title: "Watch Party & Parallel Workshop", desc: "The Full Stack developer reality series plays in L203 while the Strands Agents workshop continues in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Judge & Mentor Space", desc: "Meet and mingle with judges and mentors in L203." },
   { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Daniel Clement presents online in L203 while Alexander Rey presents in the Rogers Room." },
   { time: "12:00–1:00 PM", title: "Lunch", desc: "Lunch and networking across the event." },
-  { time: "1:00–2:00 PM", title: "Masterclass: Agents, AI and Age", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
+  { time: "1:00–4:00 PM", title: "Masterclass: Agents, AI and Age", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
   { time: "4:00–5:00 PM", title: "Hackathon Presentations", desc: "Teams present their solutions in the Foundry." },
   { time: "5:00–5:30 PM", title: "Closed-door Judging", desc: "Judges deliberate in L203." },
   { time: "5:30–6:00 PM", title: "Closing Remarks & Awards", desc: "Awards and closing remarks with Garima Bajpai and Aliza Newman." },
 ];
 
 const FEATURED_SESSIONS = [
-  {
-    name: "Manas Mondal",
-    role: "Managing Principal Enterprise Architect, Capgemini",
-    title: "Simplifying Cloud Migration: AWS Transform Enables Seamless VMware Exit",
-    linkedin: "https://www.linkedin.com/in/manas-mondal-b2b9094",
-    photo: headshotManas,
-    logo: logoCapgemini,
-    logoClass: "",
-    aws: true,
-  },
   {
     name: "Manoj Selvakumar",
     role: "GenAI Specialist Solutions Architect, Amazon Web Services",
@@ -116,7 +106,7 @@ const GalleryCarousel = () => {
     <section id="gallery" className="py-24 md:py-32 bg-gradient-surface">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16">
-          <span className="font-mono text-xs uppercase tracking-widest text-accent">06 / Gallery</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-accent">09 / Gallery</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4">Moments from past events.</h2>
           <p className="text-lg text-muted-foreground mt-4">A look back at the energy, collaboration, and community spirit from our previous gatherings.</p>
         </div>
@@ -187,9 +177,9 @@ const Index = () => {
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-smooth">About</a>
             <a href="#challenge" className="hover:text-foreground transition-smooth">Challenge</a>
+            <a href="#masterclass" className="hover:text-accent transition-smooth text-accent/80 font-medium">Masterclass</a>
             <a href="#timeline" className="hover:text-foreground transition-smooth">Program</a>
             <a href="#prizes" className="hover:text-foreground transition-smooth">Prizes</a>
-            <a href="#masterclass" className="hover:text-accent transition-smooth text-accent/80 font-medium">Masterclass</a>
             <a href="#founders" className="hover:text-foreground transition-smooth">Founders</a>
             <a href="#sponsors" className="hover:text-foreground transition-smooth">Sponsors</a>
             <a href="#gallery" className="hover:text-foreground transition-smooth">Gallery</a>
@@ -380,11 +370,55 @@ const Index = () => {
         </div>
       </section>
 
+      {/* MASTERCLASS */}
+      <section id="masterclass" className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-primary/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
+        <div className="container mx-auto px-6 relative">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">03 / Masterclass</p>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur-sm mb-6">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span className="font-mono text-xs uppercase tracking-widest text-accent">Exclusive · Limited Seats</span>
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold">Masterclass</h2>
+              <p className="text-lg text-muted-foreground mt-4">DevOps, AI & Agents with John Willis · 1:00–4:00 PM</p>
+            </div>
+
+            <div className="p-8 md:p-12 rounded-3xl border border-accent/40 bg-background/50 backdrop-blur-sm shadow-[0_0_60px_rgba(146,119,255,0.1)]">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="shrink-0">
+                  <div className="w-32 h-32 rounded-2xl border-2 border-accent/50 overflow-hidden shadow-[0_0_30px_rgba(146,119,255,0.2)]">
+                    <img src={headshotJohn} alt="John Willis" className="w-full h-full object-cover object-top" />
+                  </div>
+                  <p className="text-center font-bold text-sm mt-3">John Willis</p>
+                  <p className="text-center text-muted-foreground text-[10px]">Co-Author, The DevOps Handbook</p>
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                    An exclusive deep-dive masterclass by John Willis — co-author of The DevOps Handbook and pioneer of the DevOps movement. Explore the synergy between Generative AI, Agentic workflows, and Deming's principles of transformation.
+                  </p>
+                  <p className="text-sm text-muted-foreground/70 mb-6">
+                    ⚠️ This is a separate ticket — not included with the AWS Community Day or Hackathon registration.
+                  </p>
+                  <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 border-0 h-14 px-8 shadow-glow animate-pulse-glow">
+                    <a href="https://www.eventbrite.com/e/masterclass-devops-ai-and-agents-with-john-willis-tickets-1993440231394" target="_blank" rel="noopener noreferrer">
+                      Get Masterclass Ticket <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TIMELINE */}
       <section id="timeline" className="py-24 md:py-32 bg-gradient-surface">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-accent">03 / Program</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">04 / Program</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4">Build, learn, present.</h2>
             <p className="text-lg text-muted-foreground mt-4">The hackathon program, reconciled with the AWS Community Day multi-room agenda.</p>
           </div>
@@ -402,6 +436,11 @@ const Index = () => {
                     <div className="absolute left-0 top-2 w-3 h-3 rounded-full bg-gradient-primary -translate-x-1/2 ring-4 ring-background" />
                     <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                     <p className="text-muted-foreground">{item.desc}</p>
+                    {item.title === "Watch Party & Parallel Workshop" && (
+                      <a href={FULL_STACK_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                        Watch on CodeTV <ArrowRight className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -430,7 +469,7 @@ const Index = () => {
               <span className="font-mono text-xs uppercase tracking-widest text-accent">Featured workshops & talks</span>
               <h3 className="text-3xl font-bold mt-3">Learn while you build.</h3>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {FEATURED_SESSIONS.map((session) => (
                 <a
                   key={session.name}
@@ -464,7 +503,7 @@ const Index = () => {
       <section id="prizes" className="py-24 md:py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-accent">04 / Prizes</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">05 / Prizes</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4">Build. Demo. Win.</h2>
           </div>
 
@@ -494,7 +533,7 @@ const Index = () => {
       <section id="faq" className="py-24 md:py-32 bg-gradient-surface">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-16">
-            <span className="font-mono text-xs uppercase tracking-widest text-accent">05 / FAQ</span>
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">06 / FAQ</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4">Common questions.</h2>
           </div>
 
@@ -511,49 +550,6 @@ const Index = () => {
                 <p className="text-muted-foreground leading-relaxed">{a}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* MASTERCLASS */}
-      <section id="masterclass" className="py-24 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-primary/5 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur-sm mb-6">
-                <Sparkles className="w-4 h-4 text-accent" />
-                <span className="font-mono text-xs uppercase tracking-widest text-accent">Exclusive · Limited Seats</span>
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold">Masterclass</h2>
-              <p className="text-lg text-muted-foreground mt-4">DevOps, AI & Agents with John Willis</p>
-            </div>
-
-            <div className="p-8 md:p-12 rounded-3xl border border-accent/40 bg-background/50 backdrop-blur-sm shadow-[0_0_60px_rgba(146,119,255,0.1)]">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="shrink-0">
-                  <div className="w-32 h-32 rounded-2xl border-2 border-accent/50 overflow-hidden shadow-[0_0_30px_rgba(146,119,255,0.2)]">
-                    <img src={headshotJohn} alt="John Willis" className="w-full h-full object-cover object-top" />
-                  </div>
-                  <p className="text-center font-bold text-sm mt-3">John Willis</p>
-                  <p className="text-center text-muted-foreground text-[10px]">Co-Author, The DevOps Handbook</p>
-                </div>
-                <div className="flex-1">
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                    An exclusive deep-dive masterclass by John Willis — co-author of The DevOps Handbook and pioneer of the DevOps movement. Explore the synergy between Generative AI, Agentic workflows, and Deming's principles of transformation.
-                  </p>
-                  <p className="text-sm text-muted-foreground/70 mb-6">
-                    ⚠️ This is a separate ticket — not included with the AWS Community Day or Hackathon registration.
-                  </p>
-                  <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 border-0 h-14 px-8 shadow-glow animate-pulse-glow">
-                    <a href="https://www.eventbrite.com/e/masterclass-devops-ai-and-agents-with-john-willis-tickets-1993440231394" target="_blank" rel="noopener noreferrer">
-                      Get Masterclass Ticket <ArrowRight className="ml-2 w-5 h-5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -595,7 +591,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <span className="font-mono text-xs uppercase tracking-widest text-accent">06 / Sponsors</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">08 / Sponsors</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">Our sponsors & partners.</h2>
             </div>
 
