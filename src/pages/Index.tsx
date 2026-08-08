@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import headshotGarima from "@/assets/headshots/Garima_bajpai.png";
 import headshotJohn from "@/assets/headshots/John_Willis_Image20260606195016.png";
 import headshotAlexander from "@/assets/headshots/IMG_4822 - Alexander Rey.jpeg";
-import headshotManoj from "@/assets/headshots/Manoj_selvakumar1593311470260.jpeg";
+import headshotAlbert from "@/assets/headshots/Alber_zhao.jpeg";
+import headshotNicholas from "@/assets/headshots/52885328476_d88de56268_o_Original - Nicholas Morey.jpg";
 import headshotDaniel from "@/assets/headshots/Summit - Daniel Clement.jpg";
 import awsLogo from "@/assets/aws-logo.svg";
 import logoCrowdbyte from "@/assets/logos/logo new_version1.0_logo-main - white.png";
@@ -43,12 +44,13 @@ const HACKATHON_DAY_ONE = [
 
 const HACKATHON_DAY_TWO = [
   { time: "10:00–10:30 AM", title: "Introduction to the Judges", desc: "Meet the hackathon judges in L203 with Garima Bajpai." },
-  { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Manoj Selvakumar leads the Strands Agents workshop in the Rogers Room." },
+  { time: "10:00–10:30 AM", title: "From Agentic Development to Production on OpenShift", desc: "Nicholas Morey explores spec-driven development with Kiro, secure and reproducible workspaces in OpenShift Dev Spaces, and scalable deployment on Red Hat OpenShift Service." },
+  { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Albert Zhao leads the Strands Agents workshop in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Watch Party & Parallel Workshop", desc: "The Full Stack developer reality series plays in L203 while the Strands Agents workshop continues in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Judge & Mentor Space", desc: "Meet and mingle with judges and mentors in L203." },
   { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Daniel Clement presents online in L203 while Alexander Rey presents in the Rogers Room." },
   { time: "12:00–1:00 PM", title: "Lunch", desc: "Lunch and networking across the event." },
-  { time: "1:00–4:00 PM", title: "Masterclass: DevOps, AI and Age", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
+  { time: "1:00–4:00 PM", title: "Masterclass: DevOps, AI and Agents", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
   { time: "4:00–5:00 PM", title: "Hackathon Presentations", desc: "Teams present their solutions in the Foundry." },
   { time: "5:00–5:30 PM", title: "Closed-door Judging", desc: "Judges deliberate in L203." },
   { time: "5:30–6:00 PM", title: "Closing Remarks & Awards", desc: "Awards and closing remarks with Garima Bajpai and Aliza Newman." },
@@ -56,14 +58,25 @@ const HACKATHON_DAY_TWO = [
 
 const FEATURED_SESSIONS = [
   {
-    name: "Manoj Selvakumar",
-    role: "GenAI Specialist Solutions Architect, Amazon Web Services",
+    name: "Albert Zhao",
+    role: "Developer Advocate, Amazon Web Services",
     title: "Developer-led Workshop: Strands Agents",
-    linkedin: "https://www.linkedin.com/in/manoj-selvakumar/",
-    photo: headshotManoj,
+    linkedin: "https://www.linkedin.com/in/albert-zhao-49b62a129/",
+    photo: headshotAlbert,
     logo: awsLogo,
     logoClass: "brightness-0 invert",
     aws: true,
+  },
+  {
+    name: "Nicholas Morey",
+    role: "Red Hat",
+    title: "From Agentic Development to Production on OpenShift",
+    linkedin: "https://www.linkedin.com/in/nicholas-morey/",
+    photo: headshotNicholas,
+    logo: logoRedHat,
+    logoClass: "w-full !object-center",
+    logoContainerClass: "flex !h-14 w-20 items-center justify-center rounded-sm bg-white p-1",
+    aws: false,
   },
   {
     name: "Alexander Rey",
@@ -132,13 +145,13 @@ const GalleryCarousel = () => {
           <div className="flex items-center justify-center gap-6 mt-8">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
+              className="w-12 h-12 shrink-0 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
               aria-label="Previous photos"
             >
               <ArrowRight className="w-5 h-5 rotate-180" />
             </button>
 
-            <div className="flex gap-2">
+            <div className="hidden gap-2 sm:flex">
               {galleryImages.map((_, i) => (
                 <button
                   key={i}
@@ -153,7 +166,7 @@ const GalleryCarousel = () => {
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
+              className="w-12 h-12 shrink-0 rounded-full border border-border bg-background/50 backdrop-blur-sm flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 transition-smooth"
               aria-label="Next photos"
             >
               <ArrowRight className="w-5 h-5" />
@@ -200,7 +213,7 @@ const Index = () => {
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left */}
-            <div className="animate-fade-up">
+            <div className="min-w-0 animate-fade-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm mb-8">
                 <Sparkles className="w-4 h-4 text-accent" />
                 <span className="font-mono text-xs uppercase tracking-widest text-foreground">Ottawa · Aug 21–22, 2026</span>
@@ -235,9 +248,12 @@ const Index = () => {
 
               </div>
               <div className="flex flex-wrap gap-4 mt-4">
-                <Button asChild size="lg" className="text-base h-14 px-8 bg-accent/10 backdrop-blur-sm border border-accent/40 hover:bg-accent/20 hover:border-accent/70 hover:shadow-[0_0_25px_rgba(146,119,255,0.25)] transition-all duration-300">
+                <Button asChild size="lg" className="h-14 max-w-full px-5 text-sm sm:px-8 sm:text-base bg-accent/10 backdrop-blur-sm border border-accent/40 hover:bg-accent/20 hover:border-accent/70 hover:shadow-[0_0_25px_rgba(146,119,255,0.25)] transition-all duration-300">
                   <a href="https://www.eventbrite.com/e/masterclass-devops-ai-and-agents-with-john-willis-tickets-1993440231394" target="_blank" rel="noopener noreferrer">
-                    <Sparkles className="mr-2 w-5 h-5 text-accent" /> Masterclass - DevOps, AI, and Age with John Willis <ArrowRight className="ml-2 w-5 h-5" />
+                    <Sparkles className="mr-2 h-5 w-5 shrink-0 text-accent" />
+                    <span className="sm:hidden">John Willis Masterclass</span>
+                    <span className="hidden sm:inline">Masterclass - DevOps, AI, and Agents with John Willis</span>
+                    <ArrowRight className="ml-2 h-5 w-5 shrink-0" />
                   </a>
                 </Button>
               </div>
@@ -384,7 +400,7 @@ const Index = () => {
                 <span className="font-mono text-xs uppercase tracking-widest text-accent">Exclusive · Limited Seats</span>
               </span>
               <h2 className="text-4xl md:text-5xl font-bold">Masterclass</h2>
-              <p className="text-lg text-muted-foreground mt-4">DevOps, AI & Age with John Willis · 1:00–4:00 PM</p>
+              <p className="text-lg text-muted-foreground mt-4">DevOps, AI & Agents with John Willis · 1:00–4:00 PM</p>
             </div>
 
             <div className="p-8 md:p-12 rounded-3xl border border-accent/40 bg-background/50 backdrop-blur-sm shadow-[0_0_60px_rgba(146,119,255,0.1)]">
@@ -470,7 +486,7 @@ const Index = () => {
               <span className="font-mono text-xs uppercase tracking-widest text-accent">Featured workshops & talks</span>
               <h3 className="text-3xl font-bold mt-3">Learn while you build.</h3>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {FEATURED_SESSIONS.map((session) => (
                 <a
                   key={session.name}
