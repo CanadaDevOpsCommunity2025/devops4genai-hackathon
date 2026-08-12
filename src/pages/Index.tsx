@@ -23,6 +23,7 @@ import logoTech2Step from "@/assets/logos/T2S logo variation_1 color P2.png";
 import logoCycode from "@/assets/logos/Cycode_Logo.jpg";
 import logoGovernmentCanada from "@/assets/logos/Government-of-Canada-logo-1536x864.png";
 import logoRedHat from "@/assets/logos/Logo-Red_Hat-C-Standard-RGB.Large_logo.jpeg";
+import logoDryRun from "@/assets/logos/Dry_run_images.png";
 
 const galleryImages = Object.values(
   import.meta.glob("@/assets/gallery/*.jpg", { eager: true, import: "default" })
@@ -48,7 +49,7 @@ const HACKATHON_DAY_TWO = [
   { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Albert Zhao leads the Strands Agents workshop in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Watch Party & Parallel Workshop", desc: "The Full Stack developer reality series plays in L203 while the Strands Agents workshop continues in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Judge & Mentor Space", desc: "Meet and mingle with judges and mentors in L203." },
-  { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Daniel Clement presents online in L203 while Alexander Rey presents in the Rogers Room." },
+  { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Rohini Gaonkar presents Agents Are the New Microservices Problem in the Big Room; Ahmad Alkfri, Senior Software Developer at Cavtera, presents Revolutionizing Construction with AI in the Foundry; Daniel Clement presents online in L203; and Alexander Rey presents in the Rogers Room." },
   { time: "12:00–1:00 PM", title: "Lunch", desc: "Lunch and networking across the event." },
   { time: "1:00–4:00 PM", title: "Masterclass: DevOps, AI and Agents", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
   { time: "4:00–5:00 PM", title: "Hackathon Presentations", desc: "Teams present their solutions in the Foundry." },
@@ -625,9 +626,12 @@ const Index = () => {
             {/* Gold Sponsor */}
             <div className="mb-10">
                 <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Gold Sponsor</p>
-                <div className="flex justify-center">
+                <div className="flex flex-wrap items-center justify-center gap-8">
                   <a href="https://www.redhat.com" target="_blank" rel="noopener noreferrer" className="rounded bg-white px-7 py-4 hover:opacity-80 transition-smooth">
                     <img src={logoRedHat} alt="Red Hat" className="h-24 w-48 object-contain" />
+                  </a>
+                  <a href="https://www.dryrun.security/" target="_blank" rel="noopener noreferrer" className="rounded bg-white px-5 py-4 hover:opacity-80 transition-smooth">
+                    <img src={logoDryRun} alt="DryRun Security" className="h-20 w-48 object-contain" />
                   </a>
                 </div>
             </div>
