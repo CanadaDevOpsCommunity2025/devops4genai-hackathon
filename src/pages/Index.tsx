@@ -34,6 +34,7 @@ const HACK_URL = "https://www.eventbrite.com/e/devops-for-genai-hackathon-ottawa
 const VENUE = "Invest Ottawa, 7 Bayview Rd, Ottawa, ON";
 const EVENT_DATE = "August 21–22, 2026";
 const FULL_STACK_URL = "https://www.youtube.com/watch_videos?video_ids=8aHXhAlylQc&type=0&title=The+Full+Stack+%E2%80%94%C2%A0it%27s+about+more+than+frontend+%26+backend+%E2%80%A2+Season+1";
+const HACKATHON_THEMES_URL = "https://docs.google.com/document/d/1aq3uyKG3NAl9gHVTT86XYjolHzh01HvSt28aCSTdbk0/edit?tab=t.0";
 
 const HACKATHON_DAY_ONE = [
   { time: "4:00–4:10 PM", title: "Opening Talk", desc: "Welcome to AWS Community Day and the DevOps for GenAI Hackathon." },
@@ -49,10 +50,10 @@ const HACKATHON_DAY_TWO = [
   { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Albert Zhao leads the Strands Agents workshop in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Watch Party & Parallel Workshop", desc: "The Full Stack developer reality series plays in L203 while the Strands Agents workshop continues in the Rogers Room." },
   { time: "10:30–11:30 AM", title: "Judge & Mentor Space", desc: "Meet and mingle with judges and mentors in L203." },
-  { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Rohini Gaonkar presents Agents Are the New Microservices Problem in the Big Room; Ahmad Alkfri, Senior Software Developer at Cavtera, presents Revolutionizing Construction with AI in the Foundry; Daniel Clement presents online in L203; and Alexander Rey presents in the Rogers Room." },
+  { time: "11:30 AM–12:00 PM", title: "Parallel Technical Talks", desc: "Rohini Gaonkar presents Agents Are the New Microservices Problem in the Big Room; Ahmad Alkfri, Senior Software Developer at Cavtera, presents Revolutionizing Construction with AI in the Foundry; Daniel Clement presents online in L203; and Vijaya Nirmala Gopal presents AWS MCP Server for Infrastructure Drift Analysis in the Rogers Room." },
   { time: "12:00–1:00 PM", title: "Lunch", desc: "Lunch and networking across the event." },
   { time: "1:00–4:00 PM", title: "Masterclass: DevOps, AI and Agents", desc: "A separate-ticket masterclass with John Willis in the Rogers Room." },
-  { time: "4:00–5:00 PM", title: "Hackathon Presentations", desc: "Teams present their solutions in the Foundry." },
+  { time: "4:00–5:00 PM", title: "Hackathon Presentations & Parallel Talk", desc: "Teams present their solutions in the Foundry while Alexander Rey presents Compute for the Rest of Us: Leveraging AWS as a Civil Engineer in the Big Room from 4:00–4:30 PM." },
   { time: "5:00–5:30 PM", title: "Closed-door Judging", desc: "Judges deliberate in L203." },
   { time: "5:30–6:00 PM", title: "Closing Remarks & Awards", desc: "Awards and closing remarks with Garima Bajpai and Aliza Newman." },
 ];
@@ -60,7 +61,7 @@ const HACKATHON_DAY_TWO = [
 const FEATURED_SESSIONS = [
   {
     name: "Albert Zhao",
-    role: "Developer Advocate, Amazon Web Services",
+    role: "Developer Experience Engineer",
     title: "Developer-led Workshop: Strands Agents",
     linkedin: "https://www.linkedin.com/in/albert-zhao-49b62a129/",
     photo: headshotAlbert,
@@ -560,12 +561,17 @@ const Index = () => {
               { q: "Who can participate?", a: "Anyone! Developers, DevOps engineers, data scientists, designers — all skill levels welcome. You can register solo and we'll help you find a team." },
               { q: "What's the team size?", a: "Teams of 2–5 people. You can form your own team or join one at the event." },
               { q: "What tools can we use?", a: "Any cloud services, GenAI APIs, open-source tools, or frameworks. AWS credits will be provided to participating teams." },
-
+              { q: "What are the hackathon themes?", a: "Choose from Autonomous DevOps, AI Reliability Engineering, PromptOps & AI Developer Experience, Platform Engineering for GenAI, Unified AI Observability, AI Red Teaming & Chaos Engineering, or extending last year's winning projects.", link: HACKATHON_THEMES_URL },
               { q: "Is there a cost?", a: "Check the registration page for current pricing. Early bird discounts may be available." },
-            ].map(({ q, a }, i) => (
+            ].map(({ q, a, link }, i) => (
               <div key={i} className="p-6 rounded-xl bg-gradient-card border border-border">
                 <h4 className="font-bold text-lg mb-2">{q}</h4>
                 <p className="text-muted-foreground leading-relaxed">{a}</p>
+                {link && (
+                  <a href={link} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline">
+                    View full themes and project ideas <ArrowRight className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             ))}
           </div>
