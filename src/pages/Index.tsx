@@ -38,14 +38,15 @@ const FULL_STACK_URL = "https://www.youtube.com/watch_videos?video_ids=8aHXhAlyl
 const HACKATHON_THEMES_URL = "https://docs.google.com/document/d/1aq3uyKG3NAl9gHVTT86XYjolHzh01HvSt28aCSTdbk0/edit?tab=t.0";
 
 const HACKATHON_DAY_ONE = [
-  { time: "4:00–4:10 PM", title: "Opening Talk", desc: "Welcome to AWS Community Day and the DevOps for GenAI Hackathon." },
+  { time: "4:00–4:10 PM", title: "Opening Talk", desc: "Welcome to AWS Community Day and the DevOps for GenAI Hackathon with Kira Evans and the opening speaker." },
   { time: "4:10–4:30 PM", title: "Community Day Keynote", desc: "Leading in the Age of AI with Dr. Mary Gunaratnam." },
   { time: "4:30–5:00 PM", title: "Community Day Talk", desc: "Building an AI-forward Enterprise Platform Engineering Organization with Gautham Pallapa." },
-  { time: "5:00–5:50 PM", title: "Hackathon Team Formation & Kickoff", desc: "Coffee, networking, team formation, challenge orientation, and the start of the build." },
+  { time: "5:00–5:50 PM", title: "Hackathon Team Formation & Kickoff", desc: "Coffee, networking, and team formation with Kira Evans, followed by challenge orientation and the start of the build." },
   { time: "5:50–6:00 PM", title: "Day 1 Closing", desc: "Closing remarks and Tech2Step walkthrough with Garima Bajpai." },
 ];
 
 const HACKATHON_DAY_TWO = [
+  { time: "9:00–9:10 AM", title: "Opening Remarks", desc: "Day 2 opening remarks with Kira Evans and Nira in the Foundry." },
   { time: "10:00–10:30 AM", title: "Introduction to the Judges", desc: "Meet the hackathon judges in L203 with Garima Bajpai." },
   { time: "10:00–10:30 AM", title: "From Agentic Development to Production on OpenShift", desc: "Nicholas Morey explores spec-driven development with Kiro, secure and reproducible workspaces in OpenShift Dev Spaces, and scalable deployment on Red Hat OpenShift Service." },
   { time: "10:00–10:30 AM", title: "Selecting the Right Use Case for GenAI", desc: "Rupal Bhatt presents in L203 while Albert Zhao leads the Strands Agents workshop in the Rogers Room." },
@@ -650,8 +651,8 @@ const Index = () => {
             <div className="mb-10">
                 <p className="text-center font-mono text-xs uppercase tracking-widest text-muted-foreground mb-4">Silver Partner</p>
                 <div className="flex justify-center">
-                  <a href="https://cycode.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-smooth">
-                    <img src={logoCycode} alt="Cycode" className="h-10 object-contain" />
+                  <a href="https://cycode.com" target="_blank" rel="noopener noreferrer" className="flex h-20 w-40 items-center justify-center rounded bg-white p-3 hover:opacity-80 transition-smooth">
+                    <img src={logoCycode} alt="Cycode" className="max-h-full max-w-full object-contain" />
                   </a>
                 </div>
             </div>
